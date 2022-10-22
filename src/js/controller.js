@@ -31,7 +31,7 @@ const controlRecipe = async function () {
     recipeView.render(model.state.recipe);
   } catch (err) {
     recipeView.renderError();
-    console.log(err);
+    // console.log(err);
   }
 
 };
@@ -54,7 +54,7 @@ const controlSearchResult = async function () {
     paginationView.render(model.state.search)
   } catch (err) {
     resultView.renderError()
-    console.log(err);
+    // console.log(err);
   }
 };
 
@@ -95,7 +95,7 @@ const controlBookmarks =function(){
 
 const controlAddRecipe = async function(newrecipe){
   try{
-    console.log(newrecipe);
+    // console.log(newrecipe);
     // show spinner
     addRecipeView.renderSpinner()
   
@@ -120,7 +120,7 @@ const controlAddRecipe = async function(newrecipe){
     }, MODAL_CLOSE_SEC * 1000)
   } catch(err){
     addRecipeView.renderError(err.message)
-    console.log(err);
+    // console.log(err);
   }
 }
 
