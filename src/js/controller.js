@@ -11,9 +11,7 @@ import { MODAL_CLOSE_SEC } from './config.js';
 // import 'regenerator-runtime/runtime';
 import { async } from 'regenerator-runtime';
 
-// if(module.hot){
-//   module.hot.accept()
-// }
+
 const controlRecipe = async function () {
   try {
     const id = window.location.hash.slice(1);
@@ -28,13 +26,12 @@ const controlRecipe = async function () {
     // 1) loading recipe
     await model.loadRecipe(id);
     const { recipe } = model.state;
-    console.log(model.state.recipe);
 
     // 2) Rendering recipe
     recipeView.render(model.state.recipe);
   } catch (err) {
     recipeView.renderError();
-    console.error(err);
+    console.log(err);
   }
 
 };
@@ -56,7 +53,7 @@ const controlSearchResult = async function () {
     // 4) render pagination
     paginationView.render(model.state.search)
   } catch (err) {
-    // resultView.renderError()
+    resultView.renderError()
     console.log(err);
   }
 };
@@ -104,7 +101,6 @@ const controlAddRecipe = async function(newrecipe){
   
     // upload form
     await  model.UploadRecipe(newrecipe)
-    console.log(model.state.recipe);
 
     // render recipe
     recipeView.render(model.state.recipe)
@@ -119,12 +115,12 @@ const controlAddRecipe = async function(newrecipe){
     window.history.pushState(null,"",`#${model.state.recipe.id}`)
 
     // close form Window
-    setTimeout(function(){
+    setTimeout(function () {
       addRecipeView.toggleWindow()
     }, MODAL_CLOSE_SEC * 1000)
   } catch(err){
-    console.log(`......`,err);
     addRecipeView.renderError(err.message)
+    console.log(err);
   }
 }
 

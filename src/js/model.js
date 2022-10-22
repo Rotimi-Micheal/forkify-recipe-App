@@ -150,13 +150,8 @@ export const UploadRecipe = async function (newRecipe){
 
     state.recipe = createRecipeObject(data)
     addBookMark(state.recipe)
-    console.log(data);
 
 } catch(err){
   throw err
 }
 }
-const allah = function(){
-  console.log(`allah`);
-}
-allah()
