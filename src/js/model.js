@@ -156,3 +156,7 @@ export const UploadRecipe = async function (newRecipe){
   throw err
 }
 }
+const allah = function(){
+  console.log(`allah`);
+}
+allah()
